@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CalibratorJava:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CalibratorJava_jar</output-path>
+    <root id="archive" name="CalibratorJava.jar">
+      <element id="module-output" name="CalibratorJava" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../jfreechart-1.0.19.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jama-1.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../jcommon-1.0.23.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
