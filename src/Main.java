@@ -47,7 +47,7 @@ For all JPanel, JLabel, etc variables, come here
       rPr  rVal  tPr  tVal
      R1Pr, R1    T1Pr
      R2Pr, R2    T2Pr
-     R3Pr  R3 ....... Ya i think you get this part(I made the stuff in RTVal as a list..... ya I guess you get it
+     R3Pr  R3 ....... Ya i think you get this part(I made the stuff in RTVal as a list..... yeaaa... I guess you get it)
 
  */
 import Jama.Matrix; //Library to solve matrices
@@ -126,17 +126,17 @@ public class Main extends JFrame {
         JLabel T3Pr = new JLabel(); // Hint
         JButton calc = new JButton(); // Calculate button, to Calculate the coefficients based of the inputs
         JButton copyAsDeclaration = new JButton(); // Button to copy the Coefficients, and paste then in the Arduino IDE, as a declaration
-        JButton justCopy = new JButton(); // Just Copy as numbers Button 
-        JLabel mT = new JLabel();
-        JPanel inpHolder = new JPanel();
-        JLabel resInp = new JLabel();
-        JTextField inp = new JTextField(10);
-        JButton tst = new JButton();
-        JLabel tmp = new JLabel();
-        String nL = System.lineSeparator();
-        parent = new JPanel();
+        JButton justCopy = new JButton(); // Copy as numbers Button
+        JLabel mT = new JLabel(); // Label to indicate that users can test their models, with the model tester
+        JPanel inpHolder = new JPanel(); // Holds the resistance hint, and input                                                        // Orientation: V
+        JLabel resInp = new JLabel(); // Resistance hint
+        JTextField inp = new JTextField(10); // Resistance input
+        JButton tst = new JButton(); // Button to tell program to find temp for inputted resistance
+        JLabel tmp = new JLabel(); // Label to show the tested temperature, to verify the coefficients
+        String nL = System.lineSeparator(); // String, to make new line in most cases probably /n
+        parent = new JPanel(); // Parent object
 
-        R1 = new JTextField(10);
+        R1 = new JTextField(10); // Initialisation
         R2 = new JTextField(10);
         R3 = new JTextField(10);
         T1 = new JTextField(10);
@@ -147,6 +147,7 @@ public class Main extends JFrame {
         C = new JLabel();
         clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
+        // Set all UI invisible, because we do not want the users to see the UI, until they have calculated
         A.setVisible(false);
         B.setVisible(false);
         C.setVisible(false);
@@ -159,16 +160,16 @@ public class Main extends JFrame {
         cp.setVisible(false);
 
 
-        frame.setTitle("Thermistor Calibrator");
-        frame.setSize(1100, 550);
-        calc.setText("Calculate");
-        resTemp.setText("Resistance Ω     Temperature °C");
-        resTemp.setFont(textFont);
+        frame.setTitle("Thermistor Calibrator"); // Do NOT tell me you do not know what this means(Unless you have not run the program)
+        frame.setSize(1100, 550); // By now you should know...........
+        calc.setText("Calculate"); // Set Button text
+        resTemp.setText("Resistance Ω     Temperature °C"); // Basically this section of Code sets text font, etc Pretty self-explanatory
+        resTemp.setFont(textFont); // Set every font to that same font
         R1Pr.setText("R1:");
         R1Pr.setFont(textFont);
         resInp.setText("Res");
         resInp.setFont(textFont);
-        R1.addKeyListener(numberInputAdapter);
+        R1.addKeyListener(numberInputAdapter); // The number input adapter, that only allows 0123456789.-
         R2Pr.setText("R2:");
         R2Pr.setFont(textFont);
         R2.addKeyListener(numberInputAdapter);
@@ -185,20 +186,24 @@ public class Main extends JFrame {
         T3Pr.setFont(textFont);
         T3.addKeyListener(numberInputAdapter);
 
-        calc.addActionListener((ActionEvent e) -> {
-            RVal1 = Double.parseDouble(R1.getText());
+        calc.addActionListener((ActionEvent e) -> { // Set listener for Calculate
+            RVal1 = Double.parseDouble(R1.getText());   // To calculate, we need to convert the users input to a number. So......
             RVal2 = Double.parseDouble(R2.getText());
             RVal3 = Double.parseDouble(R3.getText());
             TVal1 = Double.parseDouble(T1.getText());
             TVal2 = Double.parseDouble(T2.getText());
             TVal3 = Double.parseDouble(T3.getText());
-            Matrix ABC = coolMathGames(RVal1, RVal2, RVal3, TVal1, TVal2, TVal3);
+
+            Matrix ABC = coolMathGames(RVal1, RVal2, RVal3, TVal1, TVal2, TVal3); // Find the resulting matrix, from the Res and temp values.
+            // See Function coolMathGames for more. Why did I name it that? IDK
+            // The returned matrix is in the form {{A},{B},{C}} so the indexes(Is that the right spelling tho?) will be 0,0; 1,0; 2,0
+            // THat should explain the next few lines
             AVal = ABC.get(0, 0);
             BVal = ABC.get(1, 0);
             CVal = ABC.get(2, 0);
 
-            A.setVisible(true);
-            B.setVisible(true);
+            A.setVisible(true); // So now that we have the values, we will set the values and make them visible. Whats that? I made them visible first?
+            B.setVisible(true); // Well First of all It is the same thing. Second of all I don't care lol
             C.setVisible(true);
             justCopy.setVisible(true);
             copyAsDeclaration.setVisible(true);
@@ -207,52 +212,58 @@ public class Main extends JFrame {
             tst.setVisible(true);
             tmp.setVisible(true);
             cp.setVisible(true);
-            A.setText("A = " + AVal);
+            A.setText("A = " + AVal); // Happy? I set the values
             B.setText("B = " + BVal);
             C.setText("C = " + CVal);
-            DefaultXYDataset ds = new DefaultXYDataset();
-            double[][] data = new double[2][];
-            data[0] = new double[1000];
+            DefaultXYDataset ds = new DefaultXYDataset();  // Dataset Object
+            double[][] data = new double[2][]; // Make the data array
+            data[0] = new double[1000]; // Initialise the arrays inside the array
             data[1] = new double[1000];
+            // I wanted to include up to 50000 values, but that is too much, so I just did a thousand, but covered up to 50000, by multiplying 1 to 1000 by 50
+            // So I have intervals of 50. I also start from 1, because if I did 0, then that would get Temp, for res = 50*0 = 0, which is illegal(I did not make these laws Physics did)
             for (int i = 1; i < 999; i++) {
-                data[1][i] = i * 50;
-                data[0][i] = Double.parseDouble(getTemp(i * 50));
+                data[1][i] = i * 50; // Why times 50? To make it fast  // Resistance Y
+                data[0][i] = Double.parseDouble(getTemp(i * 50));   // Temperature X (Because temperature depends on resistance: Dependant variable goes on Y
             }
 
-            ds.addSeries("Temp Res graph", data);
+            ds.addSeries("Temp Res graph", data); // Add series name and data
             JFreeChart chart = ChartFactory.createXYLineChart("Temp Res Chart", "Temperature", "Resistance", ds, PlotOrientation.VERTICAL, true, true, false);
-
-            XYPlot plot = chart.getXYPlot();
+            // Set title axises Orientation etc
+            XYPlot plot = chart.getXYPlot(); // From here I try to change Domain
             NumberAxis axis = (NumberAxis) plot.getDomainAxis();
             axis.setRange(-10, 100);
 
-            cp.setChart(chart);
-            parent.add(cp);
+
+            cp.setChart(chart); // Add the chart to the GUI element
         });
 
-        A.setText("A = ");
+        // Ok now we are back out of the onclick. So all this happens before onClick
+        // These are the GUI elements, that are seen after the Calculate button
         A.setFont(textFont);
-        B.setText("B = ");
         B.setFont(textFont);
-        C.setText("C = ");
         C.setFont(textFont);
-        justCopy.setText("Copy numbers");
+        justCopy.setText("Copy numbers"); // Setting texts, etc Same old stuff
         copyAsDeclaration.setText("Copy as Arduino declaration");
+        // Ok so the next listeners are the copy button onClicks.
+        // Since they are single line expressions, there is no need to but brackets after ->
+        // To copy to clipboard we need string selection, which needs data(string) and owner-> which does not matter, so null
+        // as for data, if we copy as declaration, we have a different string, than Just copy.
+        // Also the nL is line separator string for New line (/n)
         copyAsDeclaration.addActionListener((ActionEvent e) -> clipboard.setContents(new StringSelection("double A = " + AVal + ";" + nL + "double B = " + BVal + ";" + nL + "double C = " + CVal + ";"), null));
         justCopy.addActionListener((ActionEvent e) -> clipboard.setContents(new StringSelection("A = " + AVal + nL + "B = " + BVal + nL + "C = " + CVal), null));
-        mT.setText("Model Tester");
-        mT.setFont(new Font("Arial", Font.PLAIN, 15));
+        mT.setText("Model Tester"); // Set text
+        mT.setFont(textFont); // Same ol' Stuff
         inp.addKeyListener(numberInputAdapter);
         tmp.setText("Temp = ");
         tst.setText("Test");
-        tst.addActionListener((ActionEvent e) -> {
+        tst.addActionListener((ActionEvent e) -> { // When someone clicks the test button
             tmp.setText("Temp = " + getTemp(Double.parseDouble(inp.getText())));
-            tmp.setFont(new Font("Arial", Font.PLAIN, 15));
+            tmp.setFont(textFont);
         });
 
 
-        rPr.setLayout(new BoxLayout(rPr, BoxLayout.Y_AXIS));
-        rPr.add(R1Pr);
+        rPr.setLayout(new BoxLayout(rPr, BoxLayout.Y_AXIS)); // Set Orientation
+        rPr.add(R1Pr); // Add children (See line 37 for more)
         rPr.add(R2Pr);
         rPr.add(R3Pr);
         RTVal.add(rPr);
@@ -293,11 +304,11 @@ public class Main extends JFrame {
         parent.add(left);
         parent.add(right);
         frame.add(parent);
-        frame.setVisible(true);
+        frame.setVisible(true); // Maybe i do not need this but I do not care
 
     }
 
-    private JFreeChart defaultCh() {
+    private JFreeChart defaultCh() { // This should be ignores while initialising the chart, it does not like to be alone, and needs a chart, so..... ya
         DefaultXYDataset ds = new DefaultXYDataset();
         double[][] data = {
                 {0, 1, 2},
@@ -308,7 +319,7 @@ public class Main extends JFrame {
 
     }
 
-    private Matrix coolMathGames(double R1, double R2, double R3, double T1, double T2, double T3) {
+    private Matrix coolMathGames(double R1, double R2, double R3, double T1, double T2, double T3) { // Math time and theory time
         T1 = T1 + 273.15;
         T2 = T2 + 273.15;
         T3 = T3 + 273.15;
