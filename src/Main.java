@@ -34,15 +34,20 @@ Once you enter the values correctly and press calculate, then it will look somew
            | Tes            <-Button                        |                                ..                  |
            | Temp =                                         |                                     ..             |
            |________________________________________________|____________________________________________________|
-And drawing a tree chart of the borders:
-                             __________parent_________
-                            |                         |
-                       ___Right___                   Left_____
-                                                              |
-                                                            Chart
-
-
-
+And drawing a tree chart of the variable names:
+For all JPanel, JLabel, etc variables, come here
+                                             __________________parent_________________
+                                            |                                         |
+          __________________________________Left__________________________________   Right______
+         |      |    |  |  |         |             |        |      |       |    |             |
+     __rtFull__  calc  A  B  C  copyAsDeclaration  justCopy  mT _inpHolder_ tst  tmp           cp
+    |        |                                                 |           |
+ resTem  ___RTVal_______                                     resInp       inp
+        |    |    |     |
+      rPr  rVal  tPr  tVal
+     R1Pr, R1    T1Pr
+     R2Pr, R2    T2Pr
+     R3Pr  R3 ....... Ya i think you get this part(I made the stuff in RTVal as a list..... ya I guess you get it
 
  */
 import Jama.Matrix; //Library to solve matrices
@@ -64,32 +69,32 @@ import java.awt.event.KeyEvent;
 
 public class Main extends JFrame {
     // Declare Res temp and coefficient variables.
-    private double RVal1;
-    private double RVal2;
-    private double RVal3;
-    private double TVal1;
-    private double TVal2;
-    private double TVal3;
-    private double AVal;
-    private double BVal;
-    private double CVal;
+    private double RVal1; // Resistance input 1 value
+    private double RVal2; // Resistance input 2 value
+    private double RVal3; // Resistance input 2 value
+    private double TVal1; // Temperature input 1 value
+    private double TVal2; // Temperature input 2 value
+    private double TVal3; // Temperature input 3 value
+    private double AVal;  // Coefficient A value
+    private double BVal;  // Coefficient B value
+    private double CVal;  // Coefficient C value
 
     // Declare UI variables
-    private JTextField R1;
-    private JTextField R2;
-    private JTextField R3;
-    private JTextField T1;
-    private JTextField T2;
-    private JTextField T3;
-    private JLabel A;
-    private JLabel B;
-    private JLabel C;
-    private Clipboard clipboard;
-    private JPanel parent;
+    private JTextField R1; // Resistance input 1 GUI
+    private JTextField R2; // Resistance input 2 GUI
+    private JTextField R3; // Resistance input 3 GUI
+    private JTextField T1; // Temperature input 1 GUI
+    private JTextField T2; // Temperature input 2 GUI
+    private JTextField T3; // Temperature input 3 GUI
+    private JLabel A; // Coefficient A GUI
+    private JLabel B; // Coefficient B GUI
+    private JLabel C; // Coefficient C GUI
+    private Clipboard clipboard; // Clipboard variable, for copying
+    private JPanel parent; // Parent Layout: holds left and right (see line 37)
 
     public static void main(String[] args) { // Main function
         java.awt.EventQueue.invokeLater(() -> {
-            Main frame = new Main(); // Initialise the Main JForm Class
+            Main frame = new Main(); // Main form : The screen object. See line 101;
             frame.update(frame.getGraphics()); // update graphics
         });
     }
@@ -102,31 +107,31 @@ public class Main extends JFrame {
                 if (!"0123456789.-".contains(String.valueOf(kp.getKeyChar()))) kp.consume(); // Check if the input char belongs to the string, if not remove it.
             }
         };
-        ChartPanel cp = new ChartPanel(defaultCh()); // Initialise the Chart
-        JFrame frame = new JFrame(); // Frame object
-        JPanel right = new JPanel(); //
-        JPanel left = new JPanel();
-        JPanel rtFull = new JPanel();
-        JPanel RTVal = new JPanel();
-        JPanel RVal = new JPanel();
-        JPanel TVal = new JPanel();
-        JPanel rPr = new JPanel();
-        JPanel tPr = new JPanel();
-        JLabel resTemp = new JLabel();
-        JLabel R1Pr = new JLabel();
-        JLabel resInp = new JLabel();
-        JLabel R2Pr = new JLabel();
-        JLabel R3Pr = new JLabel();
-        JLabel T1Pr = new JLabel();
-        JLabel T2Pr = new JLabel();
-        JLabel T3Pr = new JLabel();
-        JButton calc = new JButton();
-        JButton copyAsDeclaration = new JButton();
-        JButton justCopy = new JButton();
+        ChartPanel cp = new ChartPanel(defaultCh()); // Chart object (see line 37 cp)
+        JFrame frame = new JFrame(); // Frame object main function looks for the frame object in this class and makes it visible        // Orientation: H
+        JPanel right = new JPanel(); // right side of the frame. Includes the chart.(see line .. ya you know the drill for this)        // Orientation: H
+        JPanel left = new JPanel(); // left side of the frame. Includes the res and temp inputs, A,B,C Copy buttons, and model tester.  // Orientation: V
+        JPanel rtFull = new JPanel(); // holds the resistance and temperature texts, inputs, and input hints                            // Orientation: V
+        JPanel RTVal = new JPanel(); // Holds just the inputs and hints                                                                 // Orientation: H
+        JPanel RVal = new JPanel(); // Holds the resistance inputs                                                                      // Orientation: V
+        JPanel TVal = new JPanel(); // Holds the temperature inputs                                                                     // Orientation: V
+        JPanel rPr = new JPanel(); // Holds the resistance hints                                                                        // Orientation: V
+        JPanel tPr = new JPanel(); // Holds the temperature hints                                                                       // Orientation: V
+        JLabel resTemp = new JLabel(); // Resistance Temperature label, indicating what to input, and in what unit to input
+        JLabel R1Pr = new JLabel(); // Hint
+        JLabel R2Pr = new JLabel(); // Hint
+        JLabel R3Pr = new JLabel(); // Hint
+        JLabel T1Pr = new JLabel(); // Hint
+        JLabel T2Pr = new JLabel(); // Hint
+        JLabel T3Pr = new JLabel(); // Hint
+        JButton calc = new JButton(); // Calculate button, to Calculate the coefficients based of the inputs
+        JButton copyAsDeclaration = new JButton(); // Button to copy the Coefficients, and paste then in the Arduino IDE, as a declaration
+        JButton justCopy = new JButton(); // Just Copy as numbers Button 
         JLabel mT = new JLabel();
+        JPanel inpHolder = new JPanel();
+        JLabel resInp = new JLabel();
         JTextField inp = new JTextField(10);
         JButton tst = new JButton();
-        JPanel inpHolder = new JPanel();
         JLabel tmp = new JLabel();
         String nL = System.lineSeparator();
         parent = new JPanel();
