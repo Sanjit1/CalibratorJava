@@ -1,5 +1,6 @@
-//Import Libraries
 /*
+Github Repo: github.com/Sanjit1/CalibratorJava
+For more info: sanjit1.github.io/CalibratorJava
  Page setup is somewhat like this
             _____________________________________________________________________________________________________
            |                   Resistance  Temperature                                                           |
@@ -261,7 +262,7 @@ public class Main extends JFrame {
             tmp.setFont(textFont);
         });
 
-
+        // This segment is for setting gui elements
         rPr.setLayout(new BoxLayout(rPr, BoxLayout.Y_AXIS)); // Set Orientation
         rPr.add(R1Pr); // Add children (See line 37 for more)
         rPr.add(R2Pr);
@@ -320,32 +321,51 @@ public class Main extends JFrame {
     }
 
     private Matrix coolMathGames(double R1, double R2, double R3, double T1, double T2, double T3) { // Math time and theory time
-        T1 = T1 + 273.15;
-        T2 = T2 + 273.15;
+        /* The relationship between the temperature and resistance of a thermistor is shown by the Steinhart equation
+        1/T = A + BlnR + Cln^3R
+        Where T is temperature in kelvins, R is resistance in Ω, and A,B,C are the Steinhart-hart coefficients. A,B,C vary from thermistor to thermistor.
+        So that's why we have this app. To calibrate the values, use three corresponding resistance and temperature values, and make a matrix.
+        The equation will be:
+         _                _      _ _     _    _
+        | 1, lnR1, ln^3 R1 |    | A |   | 1/T1 |
+        | 1, lnR2, ln^3 R2 |  * | B | = | 1/T2 |
+        |_1, lnR3, ln^3 R3_|    |_C_|   |_1/T3_|
+
+        1 is the factor of the coefficient A (1 A) lnR1 id factor of B (B lnR1) and you probably get it.
+        So we plug in R1,R2,R3,T1,T2,T3 and extract A,B,C. How? It just so happens that there is a library for that(There is a library for everything)
+         */
+        T1 = T1 + 273.15; // Temp has been inputted in C, because that's what most thermometers read in.
+        T2 = T2 + 273.15; // So we convert it to kelvin.
         T3 = T3 + 273.15;
 
         double[][] M1 = {
-                {1, ln(R1), cb(ln(R1))},
+                {1, ln(R1), cb(ln(R1))}, // Looks familiar? Its just the matrix from above
                 {1, ln(R2), cb(ln(R2))},
                 {1, ln(R3), cb(ln(R3))}
         };
         double[] M3 = {1 / T1, 1 / T2, 1 / T3};
-        Matrix lhs = new Matrix(M1);
+        Matrix lhs = new Matrix(M1); // M1*M2 = M3 . We need M2, so We solve using Jama.Matrix.solve.
         Matrix rhs = new Matrix(M3, 3);
-        return lhs.solve(rhs);
+        return lhs.solve(rhs); // M2 matrix
     }
 
     private String getTemp(double R) {
-        return (1 / (AVal + (BVal * ln(R)) + (CVal * cb(ln(R)))) - 273.15) + "";
+        return (1 / (AVal + (BVal * ln(R)) + (CVal * cb(ln(R)))) - 273.15) + ""; // Steinhart equation. the 273.15 is for kel... You know why its there.
+        // The "" is to convert to string the lazy way
     }
 
     private double ln(double numb) {
-        return Math.log(numb) / Math.log(Math.E);
+        return Math.log(numb) / Math.log(Math.E); // ln function Idk why there is no math.ln
     }
 
     private double cb(double numb) {
-        return numb * numb * numb;
+        return numb * numb * numb; // I could do n^3, but i prefer cb(n). Its stupid but it works so its legal
     }
 
 
 }
+
+
+
+// I finished commenting Hip Hip hooray!
+// I just realised why the movie matrix is called matrix

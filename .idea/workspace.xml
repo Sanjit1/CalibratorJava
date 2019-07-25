@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1a948cbb-65dc-4a60-9db8-134de72b7259" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/sanji.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/sanji.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,19 +25,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="321" column="129" selection-start-line="321" selection-start-column="129" selection-end-line="321" selection-end-column="129" />
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
               <folding>
-                <element signature="e#0#10209#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="e#1769#2156#0" expanded="true" />
                 <element signature="e#2155#2156#0" expanded="true" />
-                <element signature="e#12606#12607#0" expanded="true" />
-                <element signature="e#12693#12694#0" expanded="true" />
-                <element signature="e#12731#12732#0" expanded="true" />
-                <element signature="e#12787#12788#0" expanded="true" />
-                <element signature="e#12825#12826#0" expanded="true" />
-                <element signature="e#12866#12867#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -210,19 +202,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="321" column="129" selection-start-line="321" selection-start-column="129" selection-end-line="321" selection-end-column="129" />
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
           <folding>
-            <element signature="e#0#10209#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#1769#2156#0" expanded="true" />
             <element signature="e#2155#2156#0" expanded="true" />
-            <element signature="e#12606#12607#0" expanded="true" />
-            <element signature="e#12693#12694#0" expanded="true" />
-            <element signature="e#12731#12732#0" expanded="true" />
-            <element signature="e#12787#12788#0" expanded="true" />
-            <element signature="e#12825#12826#0" expanded="true" />
-            <element signature="e#12866#12867#0" expanded="true" />
           </folding>
         </state>
       </provider>
