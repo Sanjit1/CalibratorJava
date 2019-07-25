@@ -333,7 +333,7 @@ public class Main extends JFrame {
 
         1 is the factor of the coefficient A (1 A) lnR1 id factor of B (B lnR1) and you probably get it.
         So we plug in R1,R2,R3,T1,T2,T3 and extract A,B,C. How? It just so happens that there is a library for that(There is a library for everything)
-         */
+        */
         T1 = T1 + 273.15; // Temp has been inputted in C, because that's what most thermometers read in.
         T2 = T2 + 273.15; // So we convert it to kelvin.
         T3 = T3 + 273.15;
