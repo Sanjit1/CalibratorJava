@@ -7,7 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a948cbb-65dc-4a60-9db8-134de72b7259" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcommon_1_0_23.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/CalibratorJava_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/CalibratorJava_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibratorJava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CalibratorJava.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="323" column="72" lean-forward="true" selection-start-line="323" selection-start-column="72" selection-end-line="323" selection-end-column="72" />
+            <state relative-caret-position="289">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,11 +84,25 @@
             <path>
               <item name="CalibratorJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="CalibratorJava" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CalibratorJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="CalibratorJava" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CalibratorJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CalibratorJava" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CalibratorJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CalibratorJava" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="CalibratorJava_jar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -96,10 +113,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jfreechart-1.0.19.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/Jama-1.0.2.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.14005603" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sanji\IdeaProjects\CalibratorJava\lib" />
+      <recent name="C:\Users\sanji\IdeaProjects\CalibratorJava\out" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -113,7 +136,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JAR Application.Jar App">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="CalibratorJava" />
@@ -123,6 +146,14 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="Jama-1.0.2.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/Jama-1.0.2.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Jama-1.0.3.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/Jama-1.0.3.jar" />
+      <method v="2" />
     </configuration>
     <configuration name="Jar App" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/CalibratorJava_jar/CalibratorJava.jar" />
@@ -134,9 +165,13 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JAR Application.Jar App" />
+      <item itemvalue="JAR Application.Jama-1.0.3.jar" />
+      <item itemvalue="JAR Application.Jama-1.0.2.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.Jama-1.0.2.jar" />
+        <item itemvalue="JAR Application.Jama-1.0.3.jar" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -157,7 +192,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23600605" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2397882" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -166,7 +201,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.04608295" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39170507" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39938557" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -202,8 +237,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="323" column="72" lean-forward="true" selection-start-line="323" selection-start-column="72" selection-end-line="323" selection-end-column="72" />
+        <state relative-caret-position="289">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -223,7 +258,8 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14005603" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -231,10 +267,11 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14005603" />
               </list>
             </option>
           </splitter-proportions>
@@ -242,10 +279,11 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Jama-1.0.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14005603" />
               </list>
             </option>
           </splitter-proportions>
@@ -253,10 +291,11 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
+          <last-edited>12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14005603" />
               </list>
             </option>
           </splitter-proportions>
@@ -268,7 +307,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14005603" />
               </list>
             </option>
           </splitter-proportions>
@@ -276,10 +315,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>jcommon-1.0.23</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14005603" />
               </list>
             </option>
           </splitter-proportions>
