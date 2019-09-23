@@ -1,9 +1,9 @@
 
 # Thermistor Calibrator Java
 
-![badge](https://img.shields.io/badge/super%20duper%20awesome-heck%20ya-brightgreen?style=flat&logo=appveyor)
-![badge](https://img.shields.io/badge/needs%20internet-nah-9cf?style=flat&logo=appveyor)
-![badge](https://img.shields.io/badge/ready%20for%20scioly-of%20course!-20F000?style=flat&logo=appveyor)
+![badge](https://img.shields.io/badge/super%20duper%20awesome-heck%20ya-brightgreen?style=flat)
+![badge](https://img.shields.io/badge/needs%20internet-nah-9cf?style=flat)
+![badge](https://img.shields.io/badge/ready%20for%20scioly-of%20course!-20F000?style=flat)
 
 
 Thermistor Calibrator is an open source IntelliJ program, that can be used to Calibrate NTC Thermistors. 
