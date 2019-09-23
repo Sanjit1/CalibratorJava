@@ -1,4 +1,11 @@
+
 # Thermistor Calibrator Java
+
+![badge](https://img.shields.io/badge/super%20duper%20awesome-heck%20ya-brightgreen?style=flat&logo=appveyor)
+![badge](https://img.shields.io/badge/needs%20internet-nah-9cf?style=flat&logo=appveyor)
+![badge](https://img.shields.io/badge/ready%20for%20scioly-of%20course!-20F000?style=flat&logo=appveyor)
+
+
 Thermistor Calibrator is an open source IntelliJ program, that can be used to Calibrate NTC Thermistors. 
 Most useful for Calibrating Thermistors offline during competitions like scioly.
 
@@ -27,3 +34,7 @@ Go to  the [releases](https://github.com/Sanjit1/CalibratorJava/releases) page a
  
  Visit my [site](sanjit1.github.io/Calibrator/index.html) to learn how to use a thermistor and how to Calibrate a thermistor
  
+
+
+
+
