@@ -12,6 +12,11 @@ Most useful for Calibrating Thermistors offline during competitions like scioly.
 ##  Usage
 Go to  the [releases](https://github.com/Sanjit1/CalibratorJava/releases) page and download the [latest release jar file](https://github.com/Sanjit1/CalibratorJava/releases/latest). Then just double click it to run it from your computer.
 
+Here is what this looks like:
+
+![Modules](app.png)
+
+
 ## Contributing
 - To get started with this repo clone it:`` git clone https://github.com/Sanjit1/CalibratorJava.git``
 
